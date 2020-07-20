@@ -49,7 +49,4 @@ public class InventoryItem {
     {
         return units;
     }
-    //Static method for calling getData() in order to set up an instance of
-    //InventoryItem by calling the String/Int constructor on line 17.
-
 }

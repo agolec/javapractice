@@ -15,6 +15,10 @@ public class StockReader
         symbol = sym;
         sharePrice = price;
     }
+    public StockReader(StockReader copyObject){
+        symbol = copyObject.symbol;
+        sharePrice = copyObject.sharePrice;
+    }
 
     /**
      * getSymbol method
@@ -51,6 +55,14 @@ public class StockReader
 
         return status;
 
+    }
+    public StockReader copy()
+    {
+        //Create a new Stock object and initialize it
+        //with the same data held by the calling object.
+        StockReader copyObject = new StockReader(symbol, sharePrice);
+
+        return copyObject;
     }
 
 

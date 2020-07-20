@@ -1,5 +1,7 @@
 package StockReader;
 
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args)
     {
@@ -10,13 +12,14 @@ public class Main {
         StockReader mamiya = new StockReader("Mamiya-Op Co Ltd", 79.91);
         StockReader mamiya2 = new StockReader("Mamiya-Op Co Ltd", 79.91);
 
-        System.out.println(toyota.toString());
+        System.out.println(toyota);
 
         System.out.println("Checking equality for Mamiya and Mamiya2");
         printEqualityCheck(mamiya, mamiya2);
 
         System.out.println("Checking equality for toyota and Mamiya");
         printEqualityCheck(toyota, mamiya);
+
     }
 
     private static void printEqualityCheck(StockReader stock1, StockReader stock2) {
