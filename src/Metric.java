@@ -23,7 +23,7 @@ public class Metric {
 
     public static void main(String[] args){
         System.out.println("10 miles to kilometers is: " + Metric.milesToKilometers(10));
-        System.out.println("10 kilomesters to miles is: " + Metric.kilometersTiMiles(10));
+        System.out.println("10 kilometers to miles is: " + Metric.kilometersTiMiles(10));
 
     }
 }
