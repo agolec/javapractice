@@ -1,74 +1,27 @@
 package Chapter6.Challenges.Month;
 
-public class Month
-{
+import org.jetbrains.annotations.NotNull;
+
+public class Month {
+
     int monthNumber;
 
     //no-arg constructor.
-    public Month()
-    {
+    public Month() {
         monthNumber = 1;
     }
 
-    public Month(int monthNumber)
-    {
+    public Month(int monthNumber) {
         this.monthNumber = monthNumber;
     }
-    public Month(String monthString)
-    {
-        monthString = monthString.toUpperCase();
 
-        switch(monthString){
-            case "JAN":
-            case "JANUARY":
-                monthNumber = 1;
-                break;
-            case "FEB":
-            case "FEBRUARY":
-                monthNumber = 2;
-                break;
-            case "MAR":
-            case "MARCH":
-                monthNumber = 3;
-            case "APR":
-            case "APRIL":
-                monthNumber = 4;
-                break;
-            case "MAY":
-                monthNumber = 5;
-                break;
-            case "JUN":
-            case "JUNE":
-                monthNumber = 6;
-            case "JUL":
-            case "JULY":
-                monthNumber = 7;
-                break;
-            case "AUG":
-            case "AUGUST":
-                monthNumber = 8;
-                break;
-            case "SEP":
-            case "SEPTEMBER":
-                monthNumber = 9;
-                break;
-                case "OCT":
-            case "OCTOBER":
-                monthNumber = 10;
-                break;
-            case "NOV":
-            case "NOVEMBER":
-                monthNumber = 11;
-                break;
-            case "DEC":
-            case "DECEMBER":
-                monthNumber = 12;
-
-        }
+    public Month(@NotNull String monthString) {
+        monthNumber = java.time.Month.valueOf(monthString.toUpperCase()).getValue();
     }
+
     public void setMonthNumber(int month)
     {
-        if(month > 12 || month < 1)
+        if (month > 12 || month < 1)
         {
             monthNumber = 1;
         }
@@ -78,60 +31,42 @@ public class Month
         }
     }
 
-    public int getMonthNumber()
-    {
+    public int getMonthNumber() {
+
         return monthNumber;
     }
 
-    public String getMonthName()
-    {
-        switch(monthNumber){
-            case 1:
-                return "January";
-            case 2:
-                return "February";
-            case 3:
-                return "March";
-            case 4:
-                return "April";
-            case 5:
-                return "May";
-            case 6:
-                return "June";
-            case 7:
-                return "July";
-            case 8:
-                return "August";
-            case 9:
-                return "September";
-            case 10:
-                return "October";
-            case 11:
-                return "November";
-            case 12:
-                return "December";
-            default:
-                return "";
-            }
+    public String getMonthName() {
+        return switch (monthNumber) {
+            case 1 -> "January";
+            case 2 -> "February";
+            case 3 -> "March";
+            case 4 -> "April";
+            case 5 -> "May";
+            case 6 -> "June";
+            case 7 -> "July";
+            case 8 -> "August";
+            case 9 -> "September";
+            case 10 -> "October";
+            case 11 -> "November";
+            case 12 -> "December";
+            default -> "";
+        };
     }
 
-    public String toString()
-    {
+    public String toString() {
         return getMonthName();
     }
 
-    public boolean equals(Month month)
-    {
+    public boolean equals(@NotNull Month month) {
         return this.monthNumber == month.getMonthNumber();
     }
 
-    public boolean greaterThan(Month month)
-    {
+    public boolean greaterThan(@NotNull Month month) {
         return this.monthNumber > month.getMonthNumber();
     }
 
-    public boolean lessThan(Month month)
-    {
+    public boolean lessThan(@NotNull Month month) {
         return this.monthNumber < month.getMonthNumber();
     }
 

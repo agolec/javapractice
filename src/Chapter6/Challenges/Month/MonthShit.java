@@ -29,7 +29,7 @@ public class MonthShit
                         + monthOne.lessThan(monthTwo));
 
         //third month object. Going to equal the fuck out of monthOne.
-        Month monthThree = new Month("JUL");
+        Month monthThree = new Month("JULY");
 
         //should be true
         System.out.println("Is monthThree equal to MonthOne?\n"
