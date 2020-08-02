@@ -1,5 +1,6 @@
-package Chapter6.Challenges.Month;
+package Chapter6.Challenges.Tests;
 
+import Chapter6.Challenges.Month.Month;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
