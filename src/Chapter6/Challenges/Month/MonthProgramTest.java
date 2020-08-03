@@ -1,6 +1,6 @@
 package Chapter6.Challenges.Month;
 
-public class MonthShit
+public class MonthProgramTest
 {
     public static void main(String[] args)
     {
