@@ -1,3 +1,5 @@
+package Chapter6;
+
 public class MyMath {
     public static int square(int number)
     {

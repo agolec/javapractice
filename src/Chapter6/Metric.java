@@ -1,3 +1,5 @@
+package Chapter6;
+
 public class Metric {
     /**
      * The milesToKilometers method converts miles

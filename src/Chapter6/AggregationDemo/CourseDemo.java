@@ -1,7 +1,8 @@
-package Chapter6.Course;
+package Chapter6.AggregationDemo;
 
-import Chapter6.Instructor.Instructor;
-import Chapter6.TextBook.TextBook;
+import Chapter6.AggregationDemo.Course.Course;
+import Chapter6.AggregationDemo.Instructor.Instructor;
+import Chapter6.AggregationDemo.TextBook.TextBook;
 
 public class CourseDemo
 {
