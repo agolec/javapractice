@@ -1,4 +1,4 @@
-package Chapter6.TextBook;
+package Chapter6.AggregationDemo.TextBook;
 
 public class TextBook
 {

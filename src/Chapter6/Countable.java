@@ -1,3 +1,5 @@
+package Chapter6;
+
 public class Countable {
     private static int instanceCount = 0;
 
@@ -25,7 +27,7 @@ public class Countable {
     public static void main(String [] args){
         int objectCount;
 
-        //Create three instances of the Countable class.
+        //Create three instances of the Chapter6.Countable class.
         Countable object1 = new Countable();
         Countable object2 = new Countable();
         Countable object3 = new Countable();

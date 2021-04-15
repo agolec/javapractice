@@ -26,8 +26,8 @@ public class PoliceOfficer {
     String badgeNumber;
 
     public PoliceOfficer(ParkedCar car, ParkingMeter meter){
-        this.carUnderInspection = new ParkedCar(car);
-        this.meterUnderInspection = new ParkingMeter(meter);
+        carUnderInspection = new ParkedCar(car);
+        meterUnderInspection = new ParkingMeter(meter);
 
     }
     public PoliceOfficer(){

@@ -1,4 +1,4 @@
-package Chapter6.Instructor;
+package Chapter6.AggregationDemo.Instructor;
 
 public class Instructor
 {
