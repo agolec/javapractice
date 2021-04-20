@@ -34,7 +34,7 @@ public class NumberAnalysisTest {
     }
 
     @Test
-    void calcAverage_EqualsFifteen_ArrayEntriesTenAndTwenty(){
+    void calcAverage_ArrayEntriesTenAndTwenty_EqualsFifteen(){
         int[] entries = {10,20};
 
         NumberAnalysis analysis = new NumberAnalysis(entries);
@@ -43,7 +43,7 @@ public class NumberAnalysisTest {
     }
 
     @Test
-    void calcMaximumValue_EqualsTwenty_ArrayEntryMaximumValueTwenty(){
+    void calcMaximumValue_ArrayEntryMaximumValueTwenty_EqualsTwenty(){
         int[] entries = {10,11,20,18,18};
 
         NumberAnalysis analysis = new NumberAnalysis(entries);
@@ -51,7 +51,7 @@ public class NumberAnalysisTest {
         assertEquals(20,analysis.getMaximumValue());
     }
     @Test
-    void calcMinimumValue_EqualsTen_ArrayEntryMinimumValueTen(){
+    void calcMinimumValue_ArrayEntryMinimumValueTen_EqualsTen(){
         int[] entries = {10,11,20,18,18};
 
         NumberAnalysis analysis = new NumberAnalysis(entries);
@@ -59,7 +59,7 @@ public class NumberAnalysisTest {
         assertEquals(10,analysis.getMinimumValue());
     }
     @Test
-    void calcTotalValues_EqualsOneHundredFifty_ArrayEntryMinimumValueTen(){
+    void calcTotalValues_ArrayEntryMinimumValueTen_EqualsOneHundredFifty(){
         int[] entries = {10,20,30,40,50};
 
         NumberAnalysis analysis = new NumberAnalysis(entries);
@@ -67,7 +67,7 @@ public class NumberAnalysisTest {
         assertEquals(150,analysis.getTotalValue());
     }
     @Test
-    void toString_equalsText_threeEntryArray(){
+    void toString_threeEntryArray_equalsText_threeEntryArray(){
         int[] entries = {10,20,30};
 
         NumberAnalysis analysis = new NumberAnalysis(entries);
