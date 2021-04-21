@@ -1,18 +1,20 @@
 package Chapter8.Wrappers.VowelsAndConsonants;
 
+import org.jetbrains.annotations.NotNull;
+
 public class VowelConsonantChecker {
     String stringToProcess;
     int vowelCount;
     int consonantCount;
 
-    public VowelConsonantChecker(String input){
+    public VowelConsonantChecker(@NotNull String input){
         stringToProcess = input.toLowerCase();
 
         vowelCount = 0;
         consonantCount = 0;
         countCharacterTypes(stringToProcess);
     }
-    private void countCharacterTypes(String input) {
+    private void countCharacterTypes(@NotNull String input) {
         int vowelMatch = 0;
         int consonantMatch = 0;
 
@@ -30,7 +32,7 @@ public class VowelConsonantChecker {
         consonantCount = consonantMatch;
     }
 
-    public void setNewString(String input){
+    public void setNewString(@NotNull String input){
         stringToProcess = input.toLowerCase();
         countCharacterTypes(stringToProcess);
     }
