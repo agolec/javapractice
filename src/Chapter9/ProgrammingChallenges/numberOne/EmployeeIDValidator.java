@@ -97,5 +97,18 @@ public class EmployeeIDValidator {
                 "Where X is a number 0-9, followed by the - symbol, and L is a Letter A-M.";
         return message;
     }
+    public static boolean areCharactersDigits(String input){
+        boolean isDigit = false;
 
+        for(int i = 0; i < input.length(); i++){
+            if(Character.isDigit(input.charAt(i))){
+                isDigit = true;
+            }
+            else{
+                isDigit = false;
+                break;
+            }
+        }
+        return isDigit;
+    }
 }

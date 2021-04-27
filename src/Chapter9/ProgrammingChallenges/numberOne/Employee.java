@@ -6,7 +6,7 @@ import java.time.ZoneId;
 
 public class Employee {
     String name;
-    String employeeNumber;
+    String employeeID;
     LocalDate hireDate;
 
     public Employee(String name, String employeeNumber, String hireDate){
@@ -14,8 +14,9 @@ public class Employee {
     }
     public Employee(){
         name = "";
-        employeeNumber = "000-A";
+        employeeID = "000-A";
         hireDate = LocalDate.of(1970,1,1);
+        System.out.println("In the Employee constructor.");
     }
 
     private boolean validStringLength(String employeeNumber){
@@ -30,8 +31,8 @@ public class Employee {
         return isValid;
     }
 
-    public void setEmployeeNumber(String input) {
-        this.employeeNumber = employeeNumber;
+    public void setEmployeeID(String input) {
+        this.employeeID = employeeID;
     }
 
     public void setHireDate(LocalDate date) {
