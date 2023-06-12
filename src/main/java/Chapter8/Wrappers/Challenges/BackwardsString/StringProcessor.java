@@ -14,6 +14,10 @@ public class StringProcessor {
     }
 
     public String printReverseString(){
-       return inputString.reverse().toString();
+        String buildingString = "";
+        for(int i = inputString.length()-1; i >= 0; i--){
+           buildingString += inputString.charAt(i);
+       }
+        return buildingString;
     }
 }
