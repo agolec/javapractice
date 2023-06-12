@@ -1,8 +1,7 @@
 package Chapter8.Wrappers.Tests;
 
 import Chapter8.Wrappers.Challenges.BackwardsString.StringProcessor;
-import junitparams.JUnitParamsRunner;
-import junitparams.Parameters;
+
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
