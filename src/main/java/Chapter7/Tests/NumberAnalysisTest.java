@@ -3,38 +3,80 @@ package Chapter7.Tests;
 import org.junit.jupiter.api.Test;
 import Chapter7.NumberAnalysis.NumberAnalysis;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class NumberAnalysisTest {
 
     @Test
-    void noArgConstructor_KeepsAllValuesAtZero_returnGetFieldMethods(){
+    public void noArgConstructor_KeepsAllValuesAtZero_returnGetFieldMethods(){
+        final String TYPE_OF_TEST = "NO-ARG";
+
         NumberAnalysis analysis = new NumberAnalysis();
         int[] array = analysis.getEntryArrayField();
+        
+        final int expected_value = 0;
+        final int ACTUAL_AVERAGE = analysis.getAverageField();
+        final int ACTUAL_MINIMUM = analysis.getMinimumField();
+        final int ACTUAL_MAXIMUM = analysis.getMaximumField();
+        final int ACTUAL_TOTAL = analysis.getTotalField();
+        
+        assertEquals(expected_value, ACTUAL_AVERAGE,TYPE_OF_TEST + ": ERROR: Average was not 0.\n Actual Average:: "+ analysis.getAverageField());
+        assertEquals(expected_value, ACTUAL_MINIMUM,TYPE_OF_TEST + ": Error: Minimum field expected 0. \nActual Value: " + analysis.getMinimumField());
+        assertEquals(expected_value, ACTUAL_MAXIMUM,TYPE_OF_TEST + ": Error: No-Arg constructor test. Maximum field expected 0. \nActual Value:" + analysis.getMaximumField());
+        assertEquals(expected_value, ACTUAL_TOTAL);
 
-        assertEquals(0, analysis.getAverageField());
-        assertEquals(0, analysis.getMinimumField());
-        assertEquals(0, analysis.getMaximumField());
-        assertEquals(0, analysis.getTotalField());
+
 
         for(int i = 0; i < array.length; i++){
             assertEquals(0,array[i]);
         }
     }
     @Test
-    void intArgConstructor_setsAllReturnFields_ThreeElementArray(){
-        int[] entries = {20,10,25};
+    public void intArgConstructor_setsAllReturnFields_ThreeElementArray(){
+        final int SIZE = 3;
+        int[] entries = new int[SIZE];
+        generateRandomNumbersInArray(SIZE, entries);
+        Arrays.sort(entries);
+        //int entries[] = new int[] {20,10,25};
+
+        int expectedTotalValue = 0;
+            for(int i = 0; i < entries.length;i++){
+                expectedTotalValue += entries[i];
+            }
+        int expectedAverageValue = expectedTotalValue / entries.length;
+            int expectedMaximumValue = entries[entries.length - 1];
+            int expectedMinimumValue = entries[0];
+
+
 
         NumberAnalysis analysis = new NumberAnalysis(entries);
+        int actualAverageValue = analysis.getAverageValue();
+        int actualMaximumValue = analysis.getMaximumValue();
+        int actualMinimumValue = analysis.getMinimumValue();
+        int actualTotalValue = analysis.getTotalValue();
 
-        assertEquals(18, analysis.getAverageValue());
-        assertEquals(25, analysis.getMaximumValue());
-        assertEquals(10,analysis.getMinimumValue());
-        assertEquals(55,analysis.getTotalValue());
+        assertEquals(expectedAverageValue, actualAverageValue);
+        assertEquals(expectedMaximumValue, actualMaximumValue);
+        assertEquals(expectedMinimumValue,actualMinimumValue);
+        assertEquals(expectedTotalValue,actualTotalValue);
+    }
+
+    private static void generateRandomNumbersInArray(int SIZE, int[] entries) {
+        generateRandomNumbersInArray(SIZE,entries,true);
+    }
+    private static void generateRandomNumbersInArray(int SIZE, int[] entries, boolean SORT){
+        for(int i = 0; i < SIZE; i++){
+            entries[i] = (int)(Math.random() * 100) + 1;
+        }
+        if(SORT){
+            Arrays.sort(entries);
+        }
     }
 
     @Test
-    void calcAverage_ArrayEntriesTenAndTwenty_EqualsFifteen(){
+    public void calcAverage_ArrayEntriesTenAndTwenty_EqualsFifteen(){
         int[] entries = {10,20};
 
         NumberAnalysis analysis = new NumberAnalysis(entries);
@@ -43,7 +85,7 @@ public class NumberAnalysisTest {
     }
 
     @Test
-    void calcMaximumValue_ArrayEntryMaximumValueTwenty_EqualsTwenty(){
+    public void calcMaximumValue_ArrayEntryMaximumValueTwenty_EqualsTwenty(){
         int[] entries = {10,11,20,18,18};
 
         NumberAnalysis analysis = new NumberAnalysis(entries);
@@ -51,7 +93,7 @@ public class NumberAnalysisTest {
         assertEquals(20,analysis.getMaximumValue());
     }
     @Test
-    void calcMinimumValue_ArrayEntryMinimumValueTen_EqualsTen(){
+    public void calcMinimumValue_ArrayEntryMinimumValueTen_EqualsTen(){
         int[] entries = {10,11,20,18,18};
 
         NumberAnalysis analysis = new NumberAnalysis(entries);
@@ -59,7 +101,7 @@ public class NumberAnalysisTest {
         assertEquals(10,analysis.getMinimumValue());
     }
     @Test
-    void calcTotalValues_ArrayEntryMinimumValueTen_EqualsOneHundredFifty(){
+    public void calcTotalValues_ArrayEntryMinimumValueTen_EqualsOneHundredFifty(){
         int[] entries = {10,20,30,40,50};
 
         NumberAnalysis analysis = new NumberAnalysis(entries);
@@ -67,7 +109,7 @@ public class NumberAnalysisTest {
         assertEquals(150,analysis.getTotalValue());
     }
     @Test
-    void toString_threeEntryArray_equalsText_threeEntryArray(){
+    public void toString_threeEntryArray_equalsText_threeEntryArray(){
         int[] entries = {10,20,30};
 
         NumberAnalysis analysis = new NumberAnalysis(entries);
