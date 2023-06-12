@@ -1,16 +1,16 @@
 package Chapter6.Challenges.Tests;
 
 import Chapter6.Challenges.Month.Month;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 public class MonthTest {
 
 
 
     @Test
-    void noArgMonthConstructor(){
+    public void noArgMonthConstructor(){
         Month month = new Month();
         
         assertEquals(1,month.getMonthNumber());
@@ -18,7 +18,7 @@ public class MonthTest {
     }
 
     @Test
-    void When_MayGivenAsMonthNumberInConstructor_MonthEqualsMay(){
+    public void When_MayGivenAsMonthNumberInConstructor_MonthEqualsMay(){
         Month month = new Month(5);
 
         assertEquals(5,month.getMonthNumber());
@@ -26,7 +26,7 @@ public class MonthTest {
     }
 
     @Test
-    void Should_MonthBeMarch_WhenStringConstructorPassedStringMarch(){
+    public void Should_MonthBeMarch_WhenStringConstructorPassedStringMarch(){
         Month month = new Month("March");
 
         assertEquals(3,month.getMonthNumber());
@@ -34,7 +34,7 @@ public class MonthTest {
     }
 
     @Test
-    void Should_MonthEqualOne_WhenNumberUnderOneGivenToConstructor() {
+    public void Should_MonthEqualOne_WhenNumberUnderOneGivenToConstructor() {
         Month month = new Month();
         month.setMonthNumber(-2);
 
@@ -42,14 +42,14 @@ public class MonthTest {
     }
 
     @Test
-    void Should_MonthEqualOne_WhenNumberOverTwelveGivenToIntConstructor(){
+    public void Should_MonthEqualOne_WhenNumberOverTwelveGivenToIntConstructor(){
         Month month = new Month();
         month.setMonthNumber(13);
 
         assertEquals(1,month.getMonthNumber());
     }
     @Test
-    void Should_MonthEqualWhatUserEntered_WhenNumberBetweenOneAndTwelve(){
+    public void Should_MonthEqualWhatUserEntered_WhenNumberBetweenOneAndTwelve(){
         Month month = new Month();
         month.setMonthNumber(5);
 
@@ -57,34 +57,34 @@ public class MonthTest {
     }
 
     @Test
-    void getMonthNumber() {
+    public void getMonthNumber() {
         Month month = new Month(2);
 
         assertEquals(2,month.getMonthNumber());
     }
 
     @Test
-    void getMonthName_doesDecemberStringConstructorReturnDecemberMonthName_True() {
+    public void getMonthName_doesDecemberStringConstructorReturnDecemberMonthName_True() {
         Month month = new Month("December");
 
         assertEquals("December",month.getMonthName());
     }
     @Test
-    void getMonthName_doesDecemberIntConstructorReturnDecemberMonthName_True() {
+    public void getMonthName_doesDecemberIntConstructorReturnDecemberMonthName_True() {
         Month month = new Month(12);
 
         assertEquals("December",month.getMonthName());
     }
 
     @Test
-    void toString_doesJuneInStringConstructorReturnJuneIntoString_True() {
+    public void toString_doesJuneInStringConstructorReturnJuneIntoString_True() {
         Month month = new Month("June");
 
         assertEquals("June",month.toString());
     }
 
     @Test
-    void When_JulyComparedToJune_equalsIsFalse() {
+    public void When_JulyComparedToJune_equalsIsFalse() {
         Month month = new Month("July");
         Month notEqualToMonth = new Month("June");
 
@@ -94,7 +94,7 @@ public class MonthTest {
     //here to run this method against all combinations of
     //an object that's been constructed by String and int constructors?
     @Test
-    void When_JulyComparedToJuly_equalsIsTrue() {
+    public void When_JulyComparedToJuly_equalsIsTrue() {
         Month month = new Month("July");
         Month equalToMonth = new Month(7);
 
@@ -103,7 +103,7 @@ public class MonthTest {
 
 
     @Test
-    void When_JuneComparedToJuly_GreaterThanIsFalse() {
+    public void When_JuneComparedToJuly_GreaterThanIsFalse() {
         Month month = new Month("June");
         Month monthHigher = new Month("July");
 
@@ -111,7 +111,7 @@ public class MonthTest {
     }
 
     @Test
-    void When_JuneComparedToFebruary_GreaterThanIsTrue() {
+    public void When_JuneComparedToFebruary_GreaterThanIsTrue() {
         Month month = new Month("June");
         Month monthLower = new Month("February");
 
@@ -119,14 +119,14 @@ public class MonthTest {
     }
 
     @Test
-    void When_JuneComparedToJuly_lessThanComparisonIsTrue() {
+    public void When_JuneComparedToJuly_lessThanComparisonIsTrue() {
         Month month = new Month("June");
         Month monthHigher = new Month("July");
 
         assertEquals(true, month.lessThan(monthHigher));
     }
     @Test
-    void When_JuneComparedToMarch_lessThanComparisonIsFalse(){
+    public void When_JuneComparedToMarch_lessThanComparisonIsFalse(){
         Month month = new Month("June");
         Month monthLower = new Month("February");
 
