@@ -1,6 +1,6 @@
 package Chapter10.TestScores;
 
-public class TestScores {
+public class TestScores implements Relatable {
     private int[] scores;
     private int average;
     private int total;
@@ -24,12 +24,7 @@ public class TestScores {
             }
         }
     }
-    public int averageScore(){
-        int runningTotal = 0;
 
-        return average = this.total / this.scores.length;
-
-    }
     public String printArray(){
         StringBuilder sb = new StringBuilder();
 
@@ -42,5 +37,32 @@ public class TestScores {
         }
 
         return sb.toString();
+    }
+
+    @Override
+    public int getAverage() {
+
+        return FindArrayStats.findArrayStats(this.scores,Operation.AVERAGE);
+    }
+
+    @Override
+    public int getMax() {
+
+        return FindArrayStats.findArrayStats(this.scores,Operation.MAX);
+    }
+
+    @Override
+    public int getMin() {
+        return FindArrayStats.findArrayStats(this.scores,Operation.MIN);
+    }
+
+    @Override
+    public int getRange() {
+        return FindArrayStats.findArrayStats(this.scores,Operation.RANGE);
+    }
+
+    @Override
+    public int getTotal() {
+        return FindArrayStats.findArrayStats(this.scores,Operation.TOTAL);
     }
 }
