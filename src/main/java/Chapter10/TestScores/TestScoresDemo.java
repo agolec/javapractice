@@ -19,7 +19,7 @@ public class TestScoresDemo {
         numbers[0] = -1;
         TestScores testScore = new TestScores(numbers,SIZE);
 
-        System.out.println("Average is: " + testScore.averageScore());
+        System.out.println("Average is: " + testScore.getAverage());
         System.out.println("Array values: " + testScore.printArray());
 
 
