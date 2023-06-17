@@ -65,4 +65,12 @@ public class TestScores implements Relatable {
     public int getTotal() {
         return FindArrayStats.findArrayStats(this.scores,Operation.TOTAL);
     }
+    public String toString(){
+        String scoresString = "Total: " + this.getTotal() + "\n" +
+                    "Average: " + this.getAverage() + "\n" +
+                "Minimum Score: " + this.getMin() + "\n" +
+                "Maximum Score: " + this.getMax() + "\n" +
+                "Range of scores: " + this.getRange();
+        return scoresString;
+    }
 }

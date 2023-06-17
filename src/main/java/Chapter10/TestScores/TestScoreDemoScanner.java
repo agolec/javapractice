@@ -20,16 +20,11 @@ public class TestScoreDemoScanner {
     }
 
     private static void printStats(TestScores scores) {
-        System.out.println("Average score is: " + scores.getAverage());
-        System.out.println("Range of scores is: " + scores.getRange());
-        System.out.println("Highest score is: " + scores.getMax());
-        System.out.println("Lowest score is: " + scores.getMin());
-        System.out.println("Total of all scores is: " + scores.getTotal());
-        System.out.println("Array: " + scores.printArray());
+        System.out.println(scores.toString());
     }
 
     private static int[] generateArray(int SIZE, Random rand) {
-        final int UPPER_BOUND = 101;
+        final int UPPER_BOUND = 150;
         int[] numbersArray;
         numbersArray = IntStream.range(0, SIZE)
                 .map(i -> rand.nextInt(UPPER_BOUND))
