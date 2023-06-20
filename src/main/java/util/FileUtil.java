@@ -1,12 +1,43 @@
 package util;
 
-import java.io.EOFException;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
+import java.util.Scanner;
 
 public class FileUtil {
     static RandomAccessFile randomAccessFile;
+
+    /**
+     *
+     * @param fileName - file name to attempt to open.
+     * @return an instance of a scanner object that will either be connected to a file, if the file exists,
+     *      or null, if the file does not exist.
+     */
+    public static Scanner openFile(String fileName){
+        Scanner scan;
+        try{
+            File file = new File(fileName);
+            scan = new Scanner(file);
+        } catch (FileNotFoundException e){
+            scan = null;
+        }
+        return scan;
+    }
+
+    /**
+     *
+     * @param scan a scanner from the main program that is attached to a file.
+     * @return true if the
+     */
+    public static boolean doesFileExist(Scanner scan){
+        boolean fileExists;
+        if(scan == null){
+            fileExists = false;
+        }
+        else {
+            fileExists = true;
+        }
+        return fileExists;
+    }
     public static RandomAccessFile openReadWriteRandomAccessFile(String fileName) throws IOException {
         try{
             randomAccessFile = new RandomAccessFile(fileName, "rw");
