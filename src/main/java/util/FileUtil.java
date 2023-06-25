@@ -49,6 +49,35 @@ public class FileUtil {
         return randomAccessFile;
 
     }
+    public static void writeFile(String filePath,String line) throws IOException {
+        try {
+            FileWriter fw = new FileWriter(filePath);
+            fw.write(line);
+            System.out.println("Closing file.");
+            fw.close();
+        } catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    public static String encryptContents(String sourceFile, int encryptionOffset) throws FileNotFoundException {
+        //Encrypt the file contents.
+        Scanner scan = new Scanner(new File(sourceFile));
+        StringBuilder sb = new StringBuilder();
+        while(scan.hasNext()){
+            sb.append(scan.nextLine());
+        }
+        //Encrypt the file contents.
+        String lineInFile = "";
+        for(int i = 0; i < sb.length();i++){
+            char ch = sb.toString().charAt(i);
+            lineInFile += ((char) (ch + encryptionOffset));
+        }
+        return lineInFile;
+    }
+    public static String decryptedContents(){
+        return "";
+    }
+
     public static void writeCharactersToRandomAccessFile(RandomAccessFile fileToWriteTo, String inputForWriting) throws IOException {
         if(fileToWriteTo == null){
 
@@ -69,15 +98,21 @@ public class FileUtil {
 
         }else {
             System.out.println("Writing to file. . . ");
-
-            if(encrypt) {
-                try {
+            try {
+                if (encrypt) {
+                    System.out.println("Encrypting with + 2 chars");
                     for (int i = 0; i < inputForWriting.length(); i++) {
                         fileToWriteTo.writeChar(inputForWriting.charAt(i) + 2);
                     }
-                } catch (IOException e) {
-                    System.out.println("Error: IOException: " + e.getMessage());
+
+                } else {
+                    System.out.println("Not encrypting output.");
+                    for (int i = 0; i < inputForWriting.length(); i++) {
+                        fileToWriteTo.writeChar(inputForWriting.charAt(i));
+                    }
                 }
+            } catch (IOException e) {
+                System.out.println("Error: IOException: " + e.getMessage());
             }
         }
     }

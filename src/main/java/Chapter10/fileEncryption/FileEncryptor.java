@@ -1,6 +1,11 @@
 package Chapter10.fileEncryption;
 
+import util.FileUtil;
+
+import java.io.File;
+import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.util.Scanner;
 
 /**
  * File Encryption is the science of writing the contents of a file in a secret code.
@@ -19,7 +24,26 @@ import java.io.RandomAccessFile;
  *
  */
 public class FileEncryptor {
-    final int CHAR_SIZE = 2;
-    String fileString = "";
+    public static void main(String[] args) throws IOException {
+       String fileName = "test.dat";
+//        String filePath = directory + fileName;
+//        RandomAccessFile unencryptedFile = FileUtil.openReadWriteRandomAccessFile(filePath);
+//
+//        if(unencryptedFile == null){
+//            System.out.println("ERROR FILE IS NULL.");
+//        } else {
+//            FileUtil.writeCharactersToRandomAccessFile(unencryptedFile,"Hello I am input", true);
+//            FileUtil.closeRandomAccessFile(unencryptedFile);
+//        }
+        try{
+            final String SOURCE_FILE = "M:\\IT\\IT projects\\java-book\\javapractice\\src\\main\\java\\Chapter10\\fileEncryption\\testFileDirectory\\test.txt";
+            final String ENCRYPTION_FILE_PATH = "M:\\IT\\IT projects\\java-book\\javapractice\\src\\main\\java\\Chapter10\\fileEncryption\\testFileDirectory\\encrypted\\encryptedFile.txt";
+            String encryptedContent = FileUtil.encryptContents(SOURCE_FILE,10);
+            System.out.println("Encrypted text: " + encryptedContent);
+            FileUtil.writeFile(ENCRYPTION_FILE_PATH,encryptedContent);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
 
 }

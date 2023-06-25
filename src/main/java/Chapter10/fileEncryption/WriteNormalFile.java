@@ -15,7 +15,7 @@ public class WriteNormalFile {
         if(unencryptedFile == null){
             System.out.println("ERROR FILE IS NULL.");
         } else {
-            FileUtil.writeCharactersToRandomAccessFile(unencryptedFile,"Hello I am input", true);
+            FileUtil.writeCharactersToRandomAccessFile(unencryptedFile,"Hello I am input", false);
             FileUtil.closeRandomAccessFile(unencryptedFile);
         }
 
