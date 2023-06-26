@@ -14,7 +14,7 @@ public class FileDecryption {
             Scanner sc = new Scanner(new File(encryptedFilePath));
             StringBuilder sb = new StringBuilder();
 
-            while(sc.hasNext()){
+            while(sc.hasNext()+++++++++){
                 sb.append(sc.nextLine());
             }
             String line = "";
